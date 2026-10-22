@@ -1,15 +1,10 @@
 from PIL import Image
+import numpy as np
 
-# Abre a imagem
-imagem = Image.open("imagem1_256.png")
+imagem = Image.open("imagem3_1024.png") #insert the name of the PNG
 
-# Converte para escala de cinza (8 bits por pixel)
-imagem = imagem.convert("L")
+matriz = np.array(imagem)
 
-# Transforma os pixels em uma matriz
-matriz = [
-    list(imagem.crop((0, y, imagem.width, y + 1)).getdata())
-    for y in range(imagem.height)
-]
+np.savetxt("imagemMatriz1024.txt", matriz, fmt="%d", delimiter=" ") #choose a name for the txt
 
 print(matriz)
