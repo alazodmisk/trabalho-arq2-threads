@@ -5,8 +5,8 @@
 #include <string.h>
 #include <pthread.h>
 
-#define TOTAL 512 /* ordem da matriz */
-#define NUM_THREADS 2
+#define TOTAL 1024 /* ordem da matriz */
+#define NUM_THREADS 8
 
 typedef struct {
     int id;
@@ -122,7 +122,7 @@ void imprime_matriz(const int *m, int n)
 
 int main(int argc, char *argv[])
 {
-    const char *arquivo = (argc > 1) ? argv[1] : "imagemMatriz512.txt"; /*Escolha o nome da Matriz*/
+    const char *arquivo = (argc > 1) ? argv[1] : "imagemMatriz1024.txt"; /*Escolha o nome da Matriz*/
  
     int n;
     int *m = le_matriz(arquivo, &n);
@@ -143,7 +143,7 @@ int main(int argc, char *argv[])
     pthread_t threads[NUM_THREADS];
     Tarefa tarefas[NUM_THREADS];
 
-    int linhas = n - 2;                 /* linhas internas: 1 .. n-2 */
+    int linhas = n - 2;                 
     int base   = linhas / NUM_THREADS;
     int resto  = linhas % NUM_THREADS;
     int atual  = 1;
