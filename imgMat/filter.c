@@ -5,7 +5,6 @@
 #include <string.h>
 #include <pthread.h>
 
-#define TOTAL 1024 /* ordem da matriz */
 #define NUM_THREADS 8
 
 typedef struct {
