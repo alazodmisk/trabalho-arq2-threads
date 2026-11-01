@@ -15,9 +15,11 @@ typedef struct {
 } Tarefa;
 
 
-// incrementa um contador de 0 a 100 milhões.
-// todas as threads incrementam a mesma variável contador.
-// Cada incremento é protegido por um mutex para evitar atualizações perdidas.
+/* 
+    incrementa um contador de 0 a 100 milhões.
+    todas as threads incrementam a mesma variável contador.
+    Cada incremento é protegido por um mutex para evitar atualizações perdidas.
+*/
 void *contador(void *arg) {
     Tarefa *t = (Tarefa *)arg;
 
