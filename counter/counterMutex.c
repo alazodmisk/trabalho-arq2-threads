@@ -46,12 +46,8 @@ int main(int argc, char *argv[])
     int iteracoes_totais = 100000000 / NUM_THREADS;
     int iteracoes_resto = 100000000 % NUM_THREADS;
     for (int i = 0; i < NUM_THREADS; i++) {
-        if(i<iteracoes_resto){
-            tarefas[i] = (Tarefa){i, iteracoes_totais + 1, &acumulador, &mutex};
-        }
-        else{
-            tarefas[i] = (Tarefa){i, iteracoes_totais, &acumulador, &mutex};
-        }
+        int qtd = iteracoes_totais + (i < iteracoes_resto ? 1 : 0);
+        tarefas[i] = (Tarefa){i, qtd, &acumulador, &mutex};
         pthread_create(&threads[i], NULL, contador, &tarefas[i]);
     }
     for (int i = 0; i < NUM_THREADS; i++){
