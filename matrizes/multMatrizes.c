@@ -155,7 +155,7 @@ int main(int argc, char *argv[])
         atual += qtd;
         pthread_create(&threads[i], NULL, multiplicaMatriz, &tarefas[i]);
     }
-    for (int i = 0; i < numThreads; i++) {
+    for (int i = 0; i < NUM_THREADS; i++) {
         pthread_join(threads[i], NULL);
     }
         
