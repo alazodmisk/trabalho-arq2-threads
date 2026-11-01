@@ -1,11 +1,9 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <time.h>
-#include <math.h>
-#include <string.h>
 #include <pthread.h>
 
 #define NUM_THREADS 1
+#define TOTAL_INCREASES 100000000
 
 typedef struct {
     int id;
@@ -20,7 +18,7 @@ typedef struct {
 */
 void *contador(void *arg) {
     Tarefa *t = (Tarefa *)arg;
-    long long contador_local = 0;
+    int contador_local = 0;
   
     for (long long i = 0; i < t->iteracoes; i++) contador_local++;
     
@@ -30,7 +28,7 @@ void *contador(void *arg) {
 }
 
 
-int main(int argc, char *argv[])
+int main()
 {
     long long acumulador = 0;
   
@@ -40,8 +38,8 @@ int main(int argc, char *argv[])
     struct timespec inicio, fim;
     clock_gettime(CLOCK_MONOTONIC, &inicio);
   
-    int iteracoes_totais = TOTAL_INCREMENTOS / NUM_THREADS;
-    int iteracoes_resto = TOTAL_INCREMENTOS % NUM_THREADS;
+    int iteracoes_totais = TOTAL_INCREASES / NUM_THREADS;
+    int iteracoes_resto = TOTAL_INCREASES % NUM_THREADS;
   
     for (int i = 0; i < NUM_THREADS; i++) {
         int qtd = iteracoes_totais + (i < iteracoes_resto ? 1 : 0);
