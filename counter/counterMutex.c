@@ -6,6 +6,7 @@
 #include <pthread.h>
 
 #define NUM_THREADS 2
+#define TOTAL_INCREASES 100000000
 
 typedef struct {
     int id;
@@ -45,8 +46,8 @@ int main(int argc, char *argv[])
     struct timespec inicio, fim;
     clock_gettime(CLOCK_MONOTONIC, &inicio);
 
-    int iteracoes_totais = 100000000 / NUM_THREADS;
-    int iteracoes_resto = 100000000 % NUM_THREADS;
+    int iteracoes_totais = TOTAL_INCREASES / NUM_THREADS;
+    int iteracoes_resto = TOTAL_INCREASES % NUM_THREADS;
     for (int i = 0; i < NUM_THREADS; i++) {
         int qtd = iteracoes_totais + (i < iteracoes_resto ? 1 : 0);
         tarefas[i] = (Tarefa){i, qtd, &acumulador, &mutex};
