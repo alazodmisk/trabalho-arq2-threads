@@ -5,7 +5,7 @@
 #include <string.h>
 #include <pthread.h>
 
-#define NUM_THREADS 16
+#define NUM_THREADS 2
 
 typedef struct {
     int id;
