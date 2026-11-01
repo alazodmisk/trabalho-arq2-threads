@@ -124,14 +124,14 @@ int main(int argc, char *argv[])
 
     const char *arquivoA = argv[1];
     const char *arquivoB = argv[2];
-    const char *arquivoSaida = (argc == 5) ? argv[4] : "saida.txt";
+    const char *arquivoSaida = (argc == 4) ? argv[3] : "saida.txt";
 
     int nA, nB;
     
     int *A = le_matriz(arquivoA, &nA);
     if (!A) { fprintf(stderr, "Erro na leitura da matriz A\n"); free(A); return 1; }
     int *B = le_matriz(arquivoB, &nB);
-    if (!B) { fprintf(stderr, "Erro na leitura da matriz A\n"); free(A); free(B); return 1; }
+    if (!B) { fprintf(stderr, "Erro na leitura da matriz B\n"); free(A); free(B); return 1; }
     
     if (nA != nB) { fprintf(stderr, "Matriz de tamanhos diferentes\n"); free(A); free(B); return 1; }
 
