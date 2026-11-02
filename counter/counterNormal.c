@@ -20,7 +20,7 @@ void *contador(void *arg) {
     Tarefa *t = (Tarefa *)arg;
     int contador_local = 0;
   
-    for (long long i = 0; i < t->iteracoes; i++) contador_local++;
+    for (int i = 0; i < t->iteracoes; i++) contador_local++;
     
     t->resultado = contador_local;
 
