@@ -135,6 +135,7 @@ int main(int argc, char *argv[])
     
     if (nA != nB) { fprintf(stderr, "Matriz de tamanhos diferentes\n"); free(A); free(B); return 1; }
 
+    int n = nA;
     long long *C = malloc((size_t)n * nA * sizeof(long long));
     if (!C) { fprintf(stderr, "Erro de memoria.\n"); free(A); free(B); return 1; }
 

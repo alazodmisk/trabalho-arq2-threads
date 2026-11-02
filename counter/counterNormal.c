@@ -2,7 +2,7 @@
 #include <time.h>
 #include <pthread.h>
 
-#define NUM_THREADS 1
+#define NUM_THREADS 8
 #define TOTAL_INCREASES 100000000
 
 typedef struct {

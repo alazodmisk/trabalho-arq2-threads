@@ -5,7 +5,7 @@
 #include <string.h>
 #include <pthread.h>
 
-#define NUM_THREADS 2
+#define NUM_THREADS 1
 #define TOTAL_INCREASES 100000000
 
 typedef struct {
