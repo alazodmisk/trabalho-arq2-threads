@@ -7,7 +7,7 @@
 #include <errno.h>
 #include <limits.h>
 
-#define NUM_THREADS 8
+#define NUM_THREADS 2
 
 typedef struct {
     int inicio;          /* primeira linha (inclusive) */
